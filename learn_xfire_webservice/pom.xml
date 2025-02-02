@@ -56,7 +56,7 @@
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-servlet</artifactId>
-      <version>7.6.10.v20130312</version>
+      <version>9.4.57.v20241219</version>
     </dependency>
 
   </dependencies>
@@ -106,17 +106,14 @@
               </filters>
               <transformers>
                 <!--spring 项目需要加入如下配置，包含spring xml 配置文件的schema配置信息，否则会报"unable to locate Spring NamespaceHandler error"-->
-                <transformer
-                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                   <resource>META-INF/spring.handlers</resource>
                 </transformer>
-                <transformer
-                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                   <resource>META-INF/spring.schemas</resource>
                 </transformer>
                 <!-- 打成可执行的jar包的主方法入口-->
-                <transformer
-                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <mainClass>org.javaweb.StartService</mainClass>
                 </transformer>
 
